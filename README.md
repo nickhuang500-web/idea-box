@@ -1,5 +1,9 @@
 # Idea Box
 
+[![Release](https://img.shields.io/github/v/release/nickhuang500-web/idea-box?style=flat-square&label=release)](https://github.com/nickhuang500-web/idea-box/releases)
+[![License](https://img.shields.io/github/license/nickhuang500-web/idea-box?style=flat-square)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-macOS%2012%2B-lightgrey?style=flat-square)](#)
+
 **A tiny always-on-top window for the idea you don't want to lose.**
 
 Click the frosted `＋ 想法` pill, type one line, press <kbd>Enter</kbd>. The idea is

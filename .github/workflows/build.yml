@@ -1,0 +1,30 @@
+name: build
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build the app
+        run: ./scripts/build.sh
+
+      - name: Storage self-test
+        env:
+          IDEA_BOX_FILE: ${{ runner.temp }}/Ideas.md
+        run: |
+          "./build/Idea Box.app/Contents/MacOS/IdeaBox" --selftest "ci check"
+          cat "$IDEA_BOX_FILE"
+          grep -q "^## " "$IDEA_BOX_FILE"
+
+      - name: Upload the built app
+        uses: actions/upload-artifact@v4
+        with:
+          name: IdeaBox-app
+          path: build/Idea Box.app
+          if-no-files-found: error
